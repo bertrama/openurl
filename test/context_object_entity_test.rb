@@ -17,6 +17,7 @@ class ContextObjectEntityTest < Test::Unit::TestCase
      
      
      assert_equal "info:doi/10.1126/science.275.5304.1320", init_and_return_id("doi:10.1126/science.275.5304.1320")
+     assert_equal "info:doi/10.1126/science.275.5304.1320", init_and_return_id("DOI:10.1126/science.275.5304.1320")
      
      assert_equal "info:pmid/9036860", init_and_return_id("pmid:9036860")
      
