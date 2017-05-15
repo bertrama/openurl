@@ -420,6 +420,8 @@ module OpenURL
               @referrer.set_identifier("info:sid/"+val.to_s) 
             elsif key == 'pid'
               @referent.set_private_data(val.to_s)           
+            elsif key == 'doi'
+              @referent.set_identifier("info:doi/"+val.to_s)
             else 
               @referent.set_metadata(key, val)
             end

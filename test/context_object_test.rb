@@ -35,6 +35,8 @@ class ContextObjectTest < Test::Unit::TestCase
     self.test_kev_hybrid_values(ctx)    
     ctx = OpenURL::ContextObject.new_from_kev(data["context_objects"]["kev_0_1"])
     self.test_kev_01_values(ctx)
+    ctx = OpenURL::ContextObject.new_from_kev(data["context_objects"]["kev_0_1_nonstandard"])
+    self.test_kev_01_nonstandard_values(ctx)
   end
 
   def test_old_sid_translation
@@ -475,6 +477,10 @@ class ContextObjectTest < Test::Unit::TestCase
     assert_equal(ctx.admin["ctx_enc"]["value"], "info:ofi/enc:UTF-8")
     assert_equal(ctx.admin["ctx_ver"]["value"], "Z39.88-2004")
   end    
+
+  def test_kev_01_nonstandard_values(ctx)
+    assert(ctx.referent.identifiers.index('info:doi/10.1126/science.275.5304.1320').is_a?(Fixnum))
+  end
   
   def test_xml_values(ctx)    
     assert(ctx.referent.is_a?(OpenURL::Journal))
