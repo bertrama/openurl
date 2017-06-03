@@ -480,6 +480,7 @@ class ContextObjectTest < Test::Unit::TestCase
 
   def test_kev_01_nonstandard_values(ctx)
     assert(ctx.referent.identifiers.index('info:doi/10.1126/science.275.5304.1320').is_a?(Fixnum))
+    assert(ctx.referent.identifiers.index('info:pmid/12345').is_a?(Fixnum))
   end
   
   def test_xml_values(ctx)    
